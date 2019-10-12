@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div id="example"></div>
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/babel.min.js"></script>
+<script type="text/babel">
+  class Component extends React.Component{
+      clickHolder = ()=>{
+       let {input1} = this.refs
+       alert(input1.value)
+       
+      }
+      show =(event)=>{
+       alert(event.target.value)
+      }
+      render(){
+          return(
+              <div>
+               <input type="text" ref = "input1"/>&nbsp;&nbsp;
+               <button onClick ={this.clickHolder}>点我提交</button>&nbsp;&nbsp;
+               <input type="text" onBlur ={this.show} placeholder = "失去焦点就提交"/>
+              </div>
+          )
+      }
+  }
+   ReactDOM.render(<Component/>, document.getElementById('example'));
+</script>
+
+<body>
+
+</body>
+
+</html>
